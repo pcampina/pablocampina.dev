@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4e241bde-8d1d-463e-9bff-81d764a6dae1/deploy-status)](https://app.netlify.com/projects/pablocampina/deploys)
+
 # Retro Portfolio
 
 This is a retro-themed portfolio website built with Next.js and Tailwind CSS. It features a terminal-style design and fetches project information dynamically from the GitHub API.
