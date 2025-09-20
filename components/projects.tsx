@@ -19,12 +19,18 @@ export function Projects() {
         const response = await fetch("https://api.github.com/users/pcampina/repos?sort=pushed&per_page=4")
         if (response.ok) {
           const repos = await response.json()
-          const formattedProjects = repos.map((repo: any) => ({
-            title: repo.name,
-            description: repo.description || "No description available.",
-            tech: [repo.language, ...repo.topics].filter(Boolean),
-            html_url: repo.html_url,
-          }))
+          const formattedProjects = await Promise.all(
+            repos.map(async (repo: any) => {
+              const languagesResponse = await fetch(repo.languages_url)
+              const languages = languagesResponse.ok ? Object.keys(await languagesResponse.json()) : []
+              return {
+                title: repo.name,
+                description: repo.description || "No description available.",
+                tech: [...new Set([repo.language, ...repo.topics, ...languages])].filter(Boolean),
+                html_url: repo.html_url,
+              }
+            })
+          )
           setProjects(formattedProjects)
         } else {
           console.error("Failed to fetch projects")
