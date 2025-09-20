@@ -21,10 +21,10 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-background">
+    <section className="min-h-screen flex items-center justify-center bg-background overflow-hidden">
       <div className="container mx-auto px-4 text-center">
         {/* ASCII Art Logo */}
-        <div className="max-[660px]:transform max-[660px]:scale-40 max-[380px]:scale-30">
+        <div className="hidden min-[660px]:block">
           <div className="ascii-art text-xs md:text-sm mb-8 text-foreground">
             {`
   ██╗  ██╗██╗    ██╗███╗   ███╗    ██████╗  █████╗ ██████╗ ██╗      ██████╗ 
@@ -34,6 +34,30 @@ export function Hero() {
   ██║  ██║██║    ██║██║ ╚═╝ ██║    ██║     ██║  ██║██████╔╝███████╗╚██████╔╝
   ╚═╝  ╚═╝╚═╝    ╚═╝╚═╝     ╚═╝    ╚═╝     ╚═╝  ╚═╝╚═════╝ ╚══════╝ ╚═════╝ 
   `}
+          </div>
+        </div>
+
+        <div className="min-[660px]:hidden">
+          <div className="ascii-art text-sm mb-8 text-foreground">
+            <div className="transform scale-60">
+              <pre className="text-center">
+                {`
+    ██╗  ██╗██╗    ██╗███╗   ███╗
+    ██║  ██║██║    ██║████╗ ████║
+    ███████║██║    ██║██╔████╔██║
+    ██╔══██║██║    ██║██║╚██╔╝██║
+    ██║  ██║██║    ██║██║ ╚═╝ ██║
+    ╚═╝  ╚═╝╚═╝    ╚═╝╚═╝     ╚═╝
+
+    ██████╗  █████╗ ██████╗ ██╗      ██████╗ 
+    ██╔══██╗██╔══██╗██╔══██╗██║     ██╔═══██╗
+    ██████╔╝███████║██████╔╝██║     ██║   ██║
+    ██╔═══╝ ██╔══██║██╔══██╗██║     ██║   ██║
+    ██║     ██║  ██║██████╔╝███████╗╚██████╔╝
+    ╚═╝     ╚═╝  ╚═╝╚═════╝ ╚══════╝ ╚═════╝
+    `}
+              </pre>
+            </div>
           </div>
         </div>
 
